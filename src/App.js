@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Option from './Components/Option.js';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='groccery-list'>
+        <h2>List</h2>
+        <section className='list-content'>
+          <Option name='Tomato' price={19.90} quantity={5}></Option>
+          <label>Tomato</label>
+          <label>Tomato</label>
+        </section>
+      </div>
+      <div className='groccery-list'>
+        <h2>Cart</h2>
+        <section className='list-content'>
+          <label>Tomato</label>
+          <label>Tomato</label>
+        </section>
+        <section className='summary'>
+          <h3>Summary</h3>
+          total: 20$<br></br>
+          <button>Order Now</button>
+        </section>
+      </div>
     </div>
   );
 }
