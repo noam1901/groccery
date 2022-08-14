@@ -24,6 +24,8 @@ label {
   border-radius: 20px;
   cursor: pointer;
   max-height: 2rem;
+  display: flex;
+  justify-content: space-around;
 }
 label:hover {
   background-color: green;
@@ -33,4 +35,19 @@ label:hover {
   height: 16%;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+.list-title{
+  display: flex;
+  justify-content: space-around;
+}
+.list-title div{
+  border-bottom: 2px black solid;
+}
+.icon {
+  width: 2rem;
+}
+.disabled {
+  cursor: none;
+  color: red;
+  background: grey;
 }
