@@ -26,7 +26,6 @@ function App() {
     setTotal(total+cart[name].price)
 }
   function updateFromCart(name){
-    console.log(name);
     list[name]? list[name].quantity += 1: list[name] = {price: cart[name].price, quantity: 1, icon: cart[name].icon}
     cart[name].quantity-1 === 0? delete cart[name]: cart[name].quantity -= 1
     if(outOfStock[name]){
@@ -37,10 +36,24 @@ function App() {
     setOutOfStock({...outOfStock})
     setTotal(total-list[name].price)
 }
+  function resetAll(){
+    for(let item of Object.keys(cart)){
+      if(outOfStock[item]){
+        list[item] = outOfStock[item]
+        delete outOfStock[item]
+      }
+      list[item].quantity += cart[item].quantity
+      delete cart[item]
+    }
+    setCart({})
+    setOutOfStock({})
+    setTotal(0)
+    setList({...list})
+  }
   return (
     <div className="App">
-      <List list={list} secondList={outOfStock} onClick={(name)=>updateFromList(name)}></List>
-      <List summary={true} total={total} list={cart} onClick={(name)=>updateFromCart(name)}></List>\
+      <List name="List" list={list} secondList={outOfStock} onClick={(name)=>updateFromList(name)}></List>
+      <List name="Cart" summary={true} total={total} list={cart} order={()=>resetAll()} onClick={(name)=>updateFromCart(name)}></List>
     </div>
   );
 }
