@@ -5,7 +5,6 @@ import Modal from 'react-bootstrap/Modal';
 
 const List = props => {
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const orderButton = ()=>{
@@ -32,7 +31,7 @@ const List = props => {
         <Modal.Header closeButton>
           <Modal.Title>Summary</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{Object.keys(props.list).map((key)=>{return <Option icon={props.list[key].icon} name={key} key={key} price={props.list[key].price} quantity={props.list[key].quantity}></Option>})}<br></br>total: {props.total.toFixed(2)}$</Modal.Body>
+        <Modal.Body>{Object.keys(props.list).map((key)=>{return <Option icon={props.list[key].icon} name={key} key={key} price={props.list[key].price} quantity={props.list[key].quantity} outOfstock={true}></Option>})}<br></br>total: {props.total.toFixed(2)}$</Modal.Body>
         <Modal.Footer>
             Are You Sure?
           <Button variant="secondary" onClick={handleClose}>
